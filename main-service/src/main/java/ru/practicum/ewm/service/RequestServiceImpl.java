@@ -128,7 +128,7 @@ public class RequestServiceImpl implements RequestService {
             throw new ConflictException("Adding a request from the event initiator to participate in it");
         }
 
-        if(!event.getState().equals(EventState.PUBLISHED)) {
+        if (!event.getState().equals(EventState.PUBLISHED)) {
             throw new ConflictException("Adding a request for an event with the status NOT PUBLISHED");
         }
     }

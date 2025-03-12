@@ -11,8 +11,10 @@ import ru.practicum.ewm.entity.Compilation;
 @Mapper(componentModel = "spring")
 public interface CompilationMapper {
     CompilationResponseDto toResponse(Compilation compilation);
+
     @Mapping(target = "events", ignore = true)
     Compilation toEntity(CompilationCreateDto compilationCreateDto);
+
     @Mapping(target = "events", ignore = true)
     Compilation toEntity(CompilationUpdateDto compilationUpdateDto, @MappingTarget Compilation compilation);
 }
