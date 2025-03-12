@@ -25,7 +25,7 @@ public interface StatsRepository extends JpaRepository<EndpointHit, Long> {
                                       List<String> uris);
 
     @Query("""
-        SELECT new ru.practicum.ewm.server.stats.entity.ViewStats(h.app, h.uri, COUNT(h.ip))
+        SELECT DISTINCT new ru.practicum.ewm.server.stats.entity.ViewStats(h.app, h.uri, COUNT(h.ip))
         FROM EndpointHit h
         WHERE h.timestamp BETWEEN :start AND :end
         AND (:uris IS NULL OR h.uri IN :uris)

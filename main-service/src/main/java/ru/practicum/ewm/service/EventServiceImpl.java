@@ -227,11 +227,13 @@ public class EventServiceImpl implements EventService {
     }
 
     private void saveStats(HttpServletRequest request) {
-        EndpointHitCreateDto endpointHitDto = new EndpointHitCreateDto(
-                0L, "main-service",
-                request.getRequestURI(),
-                request.getRemoteAddr(),
-                LocalDateTime.now().format(formatter));
+        EndpointHitCreateDto endpointHitDto = EndpointHitCreateDto.builder()
+                .app("main-service")
+                .ip(request.getRemoteAddr())
+                .uri(request.getRequestURI())
+                .timestamp(LocalDateTime.now().format(formatter))
+                .build();
+
         statsClient.addStats(endpointHitDto);
     }
 
