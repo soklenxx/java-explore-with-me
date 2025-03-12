@@ -9,7 +9,7 @@ public interface URIConstants {
     String USERS_ADMIN_URI = "/admin/users";
     String ADMIN_URI = "/admin";
     String USERS_URI = "/users";
-    String EVENTS_ADMIN_URI ="/admin/events";
+    String EVENTS_ADMIN_URI = "/admin/events";
     String EVENTS_URI = "/events";
     String REQUESTS_URI = "/requests";
     String CANCEL_URI = "/cancel";
