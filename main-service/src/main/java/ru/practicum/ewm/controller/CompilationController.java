@@ -50,7 +50,7 @@ public class CompilationController {
 
     @PatchMapping(ADMIN_URI + COMPILATIONS_URI + COMPILATIONS_ID)
     public CompilationResponseDto patchCompilation(@RequestBody @Valid CompilationUpdateDto compilationUpdateDto,
-                                               @PathVariable Long compId) {
+                                                   @PathVariable Long compId) {
         return mapper.toResponse(service.patchCompilation(compilationUpdateDto, compId));
     }
 

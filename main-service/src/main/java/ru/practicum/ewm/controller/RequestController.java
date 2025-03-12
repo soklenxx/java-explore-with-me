@@ -58,7 +58,7 @@ public class RequestController {
 
     @GetMapping(USERS_URI + USER_ID_PARAM + EVENTS_URI + EVENT_ID_PARAM + REQUESTS_URI)
     public List<RequestResponseDto> getCurrentUsersRequests(@PathVariable Long userId,
-                                                     @PathVariable Long eventId) {
+                                                            @PathVariable Long eventId) {
         return service.getCurrentUsersRequests(userId, eventId).stream().map(mapper::toResponse).toList();
     }
 

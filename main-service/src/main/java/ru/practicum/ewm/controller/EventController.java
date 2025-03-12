@@ -84,15 +84,15 @@ public class EventController {
 
     @PatchMapping(EVENTS_ADMIN_URI + EVENT_ID_PARAM)
     public EventResponseDto updateEvent(@PathVariable long eventId,
-                                       @RequestBody @Valid EventRequestUserUpdateDto eventDto) {
+                                        @RequestBody @Valid EventRequestUserUpdateDto eventDto) {
         return mapper.toResponse(service.patchEvent(eventId, eventDto));
     }
 
 
     @PatchMapping(USERS_URI + USER_ID_PARAM + EVENTS_URI + EVENT_ID_PARAM)
     public EventResponseDto updateEventByCurrentUser(@PathVariable long userId,
-                                                    @PathVariable long eventId,
-                                                    @RequestBody @Valid EventRequestUserUpdateDto eventDto) {
+                                                     @PathVariable long eventId,
+                                                     @RequestBody @Valid EventRequestUserUpdateDto eventDto) {
         return mapper.toResponse(service.patchEventByUser(userId, eventId, eventDto));
     }
 
