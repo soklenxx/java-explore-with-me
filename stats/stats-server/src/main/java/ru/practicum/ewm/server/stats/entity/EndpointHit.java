@@ -11,7 +11,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDateTime;
 
-import static ru.practicum.ewm.server.stats.ConstantDate.DATE;
+import static ru.practicum.ewm.dto.stats.ConstantDate.DATE;
 
 @Entity
 @Table(name = "endpoint")
