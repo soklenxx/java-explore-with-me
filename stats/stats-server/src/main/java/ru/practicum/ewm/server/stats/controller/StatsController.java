@@ -16,7 +16,7 @@ import ru.practicum.ewm.server.stats.service.StatsService;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static ru.practicum.ewm.server.stats.ConstantDate.DATE;
+import static ru.practicum.ewm.dto.stats.ConstantDate.DATE;
 
 
 @RestController

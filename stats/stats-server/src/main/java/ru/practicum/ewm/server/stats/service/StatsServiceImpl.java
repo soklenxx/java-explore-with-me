@@ -7,6 +7,7 @@ import ru.practicum.ewm.dto.stats.ViewStatsResponseDto;
 import ru.practicum.ewm.server.stats.mapper.EndpointHitMapper;
 import ru.practicum.ewm.server.stats.mapper.ViewStatsMapper;
 import ru.practicum.ewm.server.stats.repository.StatsRepository;
+import ru.practicum.ewm.server.stats.exception.ArgumentResolverException;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -25,6 +26,9 @@ public class StatsServiceImpl implements StatsService {
 
     @Override
     public List<ViewStatsResponseDto> getStats(LocalDateTime start, LocalDateTime end, List<String> uris, Boolean unique) {
+        if (start.isAfter(end)) {
+            throw new ArgumentResolverException("Start date cannot be after end date");
+        }
         if (unique) {
             return statsServerRepository.findDistinctViews(start, end, uris).stream().map(viewStatsMapper::toViewStatsDto).toList();
         } else {

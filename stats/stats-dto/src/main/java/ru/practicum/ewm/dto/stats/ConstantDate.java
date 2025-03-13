@@ -1,4 +1,4 @@
-package ru.practicum.ewm.server.stats;
+package ru.practicum.ewm.dto.stats;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
