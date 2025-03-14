@@ -8,7 +8,6 @@ import jakarta.validation.constraints.Size;
 import ru.practicum.ewm.dto.info.LocationInfoDto;
 
 public record EventCreateDto(
-        long id,
         @NotNull
         @NotBlank
         @Size(min = 20, message = "{validation.annotation.size.too_short}")
