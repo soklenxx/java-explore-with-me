@@ -21,7 +21,7 @@ import ru.practicum.ewm.service.CompilationService;
 import java.util.List;
 
 import static ru.practicum.ewm.controller.URIConstants.ADMIN_URI;
-import static ru.practicum.ewm.controller.URIConstants.COMPILATIONS_ID;
+import static ru.practicum.ewm.controller.URIConstants.COMPILATIONS_ID_PARAM;
 import static ru.practicum.ewm.controller.URIConstants.COMPILATIONS_URI;
 
 @RestController
@@ -37,7 +37,7 @@ public class CompilationController {
         return service.getEventsCompilations(pinned, from, size).stream().map(mapper::toResponse).toList();
     }
 
-    @GetMapping(COMPILATIONS_URI + COMPILATIONS_ID)
+    @GetMapping(COMPILATIONS_URI + COMPILATIONS_ID_PARAM)
     public CompilationResponseDto getEventCompilationById(@PathVariable Long compId) {
         return mapper.toResponse(service.getEventCompilationById(compId));
     }
@@ -48,14 +48,14 @@ public class CompilationController {
         return mapper.toResponse(service.createCompilation(compilationCreateDto));
     }
 
-    @PatchMapping(ADMIN_URI + COMPILATIONS_URI + COMPILATIONS_ID)
+    @PatchMapping(ADMIN_URI + COMPILATIONS_URI + COMPILATIONS_ID_PARAM)
     public CompilationResponseDto patchCompilation(@RequestBody @Valid CompilationUpdateDto compilationUpdateDto,
                                                    @PathVariable Long compId) {
         return mapper.toResponse(service.patchCompilation(compilationUpdateDto, compId));
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(ADMIN_URI + COMPILATIONS_URI + COMPILATIONS_ID)
+    @DeleteMapping(ADMIN_URI + COMPILATIONS_URI + COMPILATIONS_ID_PARAM)
     public void deleteCompilationById(@PathVariable long compId) {
         service.deleteCompilationById(compId);
 

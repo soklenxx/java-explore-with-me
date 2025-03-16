@@ -14,6 +14,7 @@ public interface URIConstants {
     String REQUESTS_URI = "/requests";
     String CANCEL_URI = "/cancel";
     String COMPILATIONS_URI = "/compilations";
+    String COMMENTS_URI = "/comments";
 
 
     //---PARAMS---//
@@ -22,5 +23,6 @@ public interface URIConstants {
     String USER_ID_PARAM = "/{userId}";
     String EVENT_ID_PARAM = "/{eventId}";
     String REQUEST_ID_PARAM = "/{requestId}";
-    String COMPILATIONS_ID = "/{compId}";
+    String COMPILATIONS_ID_PARAM = "/{compId}";
+    String COMMENTS_ID_PARAM = "/{commentId}";
 }
